@@ -4,10 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.cursomc.domain.Cliente;
-import com.cursomc.domain.Produto;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
+public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	
 
 }
