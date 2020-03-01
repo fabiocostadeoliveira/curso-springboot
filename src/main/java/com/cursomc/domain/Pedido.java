@@ -27,10 +27,8 @@ public class Pedido implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private Date instante;
-	
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy = "pedido")
 	private Pagamento pagamento;
@@ -45,7 +43,6 @@ public class Pedido implements Serializable {
 	
 	@OneToMany(mappedBy = "id.pedido")
 	private Set<ItemPedido> itens = new HashSet<>();
-	
 	
 	public Pedido() {
 	}
