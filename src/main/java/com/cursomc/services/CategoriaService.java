@@ -1,5 +1,6 @@
 package com.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,11 @@ public class CategoriaService {
 			throw new IntegrityViolationException("Nao é possivel deletar uma categoria que contem produtos.");
 		}
 		
+	}
+
+	public List<Categoria> findAll() {
+		
+		return categoriaRepository.findAll();
 	}
 
 }
