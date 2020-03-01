@@ -13,7 +13,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository categoriaRepository;
 	
-	public Cliente buscar(Integer id) {
+	public Cliente find(Integer id) {
 		
 		Optional<Cliente> categoria = categoriaRepository.findById(id);
 		
