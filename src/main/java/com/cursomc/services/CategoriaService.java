@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.cursomc.domain.Categoria;
-import com.cursomc.domain.Cliente;
 import com.cursomc.dto.CategoriaDTO;
 import com.cursomc.repositories.CategoriaRepository;
 import com.cursomc.services.exceptions.IntegrityViolationException;
@@ -37,12 +36,6 @@ public class CategoriaService {
 		return categoriaRepository.save(obj);
 	}
 
-//	public Categoria update(Categoria obj) {
-//		
-//		find(obj.getId());
-//		
-//		return categoriaRepository.save(obj);
-//	}
 	
 	public Categoria update(Categoria obj) {
 		
