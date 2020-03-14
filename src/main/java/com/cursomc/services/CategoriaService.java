@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.cursomc.domain.Categoria;
+import com.cursomc.domain.Cliente;
 import com.cursomc.dto.CategoriaDTO;
 import com.cursomc.repositories.CategoriaRepository;
 import com.cursomc.services.exceptions.IntegrityViolationException;
@@ -33,15 +34,23 @@ public class CategoriaService {
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		
-		// TODO - Verificar trecho abaixo para ver se nao vai gerar erro
 		return categoriaRepository.save(obj);
 	}
 
+//	public Categoria update(Categoria obj) {
+//		
+//		find(obj.getId());
+//		
+//		return categoriaRepository.save(obj);
+//	}
+	
 	public Categoria update(Categoria obj) {
 		
-		find(obj.getId());
+		Categoria newObj = find(obj.getId());
 		
-		return categoriaRepository.save(obj);
+		updateData(newObj, obj);
+		
+		return categoriaRepository.save(newObj);
 	}
 	
 	public void delete(Integer id) {
@@ -75,5 +84,11 @@ public class CategoriaService {
 	public Categoria fromDTO(CategoriaDTO categoriaDTO) {
 		return new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
 	}
+	
+	// TODO Fazer metodo generico para fazer atualizacao dos dados
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());		
+	}
+
 
 }
