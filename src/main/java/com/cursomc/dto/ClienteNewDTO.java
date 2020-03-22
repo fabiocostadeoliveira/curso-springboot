@@ -4,18 +4,33 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
+
+import com.cursomc.FactoryMessage;
+import com.cursomc.services.validations.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
-	private Integer id;
 	
+	private static final String PREENCHIMENTO_OBRIGATORIO = "Preenchimento Obrigatorio";
+	
+	private Integer id;
+		
+	@NotEmpty(message = PREENCHIMENTO_OBRIGATORIO)
+	@Length(min = 5, max = 120, message = "O tamanho deve conter entre 5 e 120 caracteres")
 	private String nome;
 	
+	@NotEmpty(message = PREENCHIMENTO_OBRIGATORIO)
+	@Email(message = "Email invalido")
 	private String email;
 	
+	@NotEmpty(message = PREENCHIMENTO_OBRIGATORIO)
 	private String cpfOuCnpj;
 	
 	private Integer tipo;
@@ -37,6 +52,8 @@ public class ClienteNewDTO implements Serializable {
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = tipo;
 		this.endereco = endereco;
+		
+		FactoryMessage.generate("safsdfa", "1");
 	}
 
 	public Integer getId() {

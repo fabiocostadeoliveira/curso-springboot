@@ -1,11 +1,17 @@
 package com.cursomc.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class EnderecoDTO {
+	
+	private static final String PREENCHIMENTO_OBRIGATORIO = "Preenchimento Obrigatorio";
 	
 	private Integer id;
 	
+	@NotEmpty(message = PREENCHIMENTO_OBRIGATORIO)
 	private String logradouro;
 	
+	@NotEmpty(message = PREENCHIMENTO_OBRIGATORIO)
 	private String numero;
 	
 	private String complemento;

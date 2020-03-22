@@ -65,7 +65,7 @@ public class ClienteService {
 		try {
 			clienteRepository.deleteById(id);
 			
-		} catch (DataIntegrityViolationException dive) {
+		} catch (DataIntegrityViolationException dv) {
 			
 			throw new IntegrityViolationException("Nao é possivel deletar um cliente porque existem vinculos com outros registros.");
 			
@@ -111,11 +111,7 @@ public class ClienteService {
 		
 		cli.getEnderecos().add(end);
 		
-			
 		objDTO.getTelefones().forEach(t -> cli.getTelefones().add(t));
-		
-		//Acredito que o teste acima é o suficiente, ficando menos verboso
-//		Optional.ofNullable(objDTO.getTelefones()).ifPresent(l -> l.forEach(tel -> cli.getTelefones().add(tel)));
 		
 		return cli;
 	}
