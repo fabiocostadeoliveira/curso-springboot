@@ -80,17 +80,33 @@ public class CursomcApplication implements CommandLineRunner{
 		Produto p2 = new Produto(null, "Impressora", 800.00);
 		Produto p3 = new Produto(null, "Mesa", 1800.00);
 		Produto p4 = new Produto(null, "Vassoura", 10.00);
+		Produto p5 = new Produto(null, "Toalha", 50.00);
+		Produto p6 = new Produto(null, "Colcha", 10.00);
+		Produto p7 = new Produto(null, "Televisao", 1200.00);
+		Produto p8 = new Produto(null, "Roçadeira", 800.00);
+		Produto p9 = new Produto(null, "Abajur", 100.00);
+		Produto p10 = new Produto(null, "Luminaria", 180.00);
+		Produto p11 = new Produto(null, "Shampoo", 30.00);
 		
 		cat1.getProdutos().addAll(Arrays.asList(p1,p2));
 		cat2.getProdutos().addAll(Arrays.asList(p3));
-		cat3.getProdutos().addAll(Arrays.asList(p4));
-		cat3.getProdutos().addAll(Arrays.asList(p4));
+		cat3.getProdutos().addAll(Arrays.asList(p4,p5,p6,p7,p11));
+		cat4.getProdutos().addAll(Arrays.asList(p4,p8));
+		cat7.getProdutos().addAll(Arrays.asList(p9,p10));
 		
 		
 		p1.getCategorias().addAll(Arrays.asList(cat1, cat2));
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
 		p3.getCategorias().addAll(Arrays.asList(cat2));
 		p4.getCategorias().addAll(Arrays.asList(cat3));
+		p5.getCategorias().addAll(Arrays.asList(cat3));
+		p6.getCategorias().addAll(Arrays.asList(cat3));
+		p7.getCategorias().addAll(Arrays.asList(cat3,cat1));
+		p8.getCategorias().addAll(Arrays.asList(cat4));
+		p9.getCategorias().addAll(Arrays.asList(cat3));
+		p10.getCategorias().addAll(Arrays.asList(cat3));
+		p11.getCategorias().addAll(Arrays.asList(cat3));
+		
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7));
 		produtoRepository.saveAll(Arrays.asList(p1,p2,p3,p4));
